@@ -1,29 +1,36 @@
-/* --- STYLE.CSS : Design Premium, Couleurs & Animations --- */
+/*
+    STYLE.CSS - SAE JPO 2026
+    fait par l'equipe pour le projet web
+    derniere modif: jsp lol
+*/
 
-/* Import des polices */
+/* google fonts (j'ai trouvé ca sur stackoverflow) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap');
 
+/* variables css facile pour factoriser */
 :root {
-    --bg-dark: #0f1115;       
-    --bg-header: rgba(15, 17, 21, 0.95); 
-    --accent-blue: #3b82f6;   /* Bleu vibrant */
-    --text-white: #ffffff;
-    --text-gray: #94a3b8;
-    
-    /* Effet verre */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --couleur-fond: #0f1115;
+    --couleur-header: rgba(15, 17, 21, 0.95);
+    --bleu: #3b82f6;
+    --bleu-fonce: #2563eb;
+    --blanc: #ffffff;
+    --gris: #94a3b8;
 }
 
+/* le body  */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    line-height: 1.6;
+    background-color: var(--couleur-fond);
     background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1), transparent 40%);
+    color: var(--blanc);
+    line-height: 1.6;
+    margin: 0; /* reset navigateur */
+    padding: 0;
 }
 
-/* --- TYPOGRAPHIE --- */
+/* ========== TITRES ========== */
+
+/* tous les titres en montserrat c'est le style utilisé */
 h1, h2, h3, .logo, .btn-cta, .nav-links a, .header-cta {
     font-family: 'Montserrat', sans-serif;
 }
@@ -34,56 +41,66 @@ h1 {
     text-transform: uppercase;
     letter-spacing: -1px;
     margin-bottom: 1rem;
+    /* effet degrade sur le texte (trop stylé) */
     background: linear-gradient(135deg, #fff, #cbd5e1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* titre de section */
 h2.titre-section {
     font-size: 2rem;
     text-align: center;
     text-transform: uppercase;
-    margin: 4rem 0 2rem 0; /* Espacement autour des titres de section */
-    color: var(--text-white);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    color: var(--blanc);
     letter-spacing: 1px;
 }
 
 h3 {
-    color: var(--accent-blue);
+    color: var(--bleu);
     font-size: 1.4rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 p {
-    color: var(--text-gray);
+    color: var(--gris);
     font-size: 1.05rem;
     margin-bottom: 1rem;
 }
 
+/* pour les mots importants */
 .mot-cle {
-    color: var(--text-white);
+    color: var(--blanc);
     font-weight: 600;
 }
 
-/* --- HEADER --- */
+/* ========== HEADER (la barre en haut) ========== */
+
 header {
-    background-color: var(--bg-header);
-    border-bottom: var(--glass-border);
-    position: sticky;
+    background-color: var(--couleur-header);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky; /* reste en haut quand on scroll */
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
+    z-index: 1000; /* pour etre au dessus du reste */
+    backdrop-filter: blur(10px); /* effet flou derriere */
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text-white);
+    color: var(--blanc);
     letter-spacing: 1px;
 }
-.logo-accent { color: var(--accent-blue); }
 
+/* la partie colorée du logo */
+.logo-accent {
+    color: var(--bleu);
+}
+
+/* liens de navigation */
 .nav-links a {
     text-decoration: none;
     color: #cbd5e1;
@@ -94,16 +111,24 @@ header {
     letter-spacing: 0.5px;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: var(--text-white);
-    border-bottom: 2px solid var(--accent-blue);
+.nav-links a:hover {
+    color: var(--blanc);
+    border-bottom: 2px solid var(--bleu);
     padding-bottom: 5px;
 }
 
+/* lien actif (page actuelle) */
+.nav-links a.active {
+    color: var(--blanc);
+    border-bottom: 2px solid var(--bleu);
+    padding-bottom: 5px;
+}
+
+/* bouton contact dans le header */
 .header-cta {
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.2);
-    color: var(--text-white);
+    color: var(--blanc);
     padding: 8px 16px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -111,12 +136,15 @@ header {
     transition: 0.3s;
     border-radius: 2px;
 }
+
 .header-cta:hover {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
+    background-color: var(--bleu);
+    border-color: var(--bleu);
 }
 
-/* --- HERO --- */
+
+/* ========== HERO (grande image en haut) ========== */
+
 #hero {
     position: relative;
     display: flex;
@@ -127,50 +155,73 @@ header {
     background-position: center;
 }
 
-/* --- CARTES & BLOCS TEXTE (Correction BUG Animation) --- */
 
-/* Style pour les cartes (Accueil) et Blocs texte (Licence) */
-.card, .bloc-texte {
-    background: var(--glass-bg);
-    border: var(--glass-border);
+/* ========== CARTES ========== */
+
+/* style de base pour les cartes */
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     backdrop-filter: blur(5px);
-    
-    /* L'animation manquante est ici : */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s, background 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.card {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all 0.3s ease; /* animation smooth */
+    position: relative;
+    overflow: hidden;
 }
 
+/* pareil mais pour les blocs de texte */
 .bloc-texte {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
     padding: 2.5rem;
-    margin-bottom: 2rem; /* Espace entre les blocs */
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Effet au survol (Hover) commun */
-.card:hover, .bloc-texte:hover {
-    transform: translateY(-5px); /* Monte de 5px */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Ombre */
-    border-color: var(--accent-blue); /* Bordure bleue */
-    background: rgba(255, 255, 255, 0.05); /* S'éclaircit */
+/* effet quand on passe la souris dessus */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--bleu);
+    background: rgba(255, 255, 255, 0.05);
 }
 
-/* Style spécifique : Bordure gauche bleue */
+.bloc-texte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--bleu);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* bordure bleue a gauche */
 .bordure-gauche {
-    border-left: 4px solid var(--accent-blue);
+    border-left: 4px solid var(--bleu);
 }
 
-/* --- BOUTONS --- */
+/* liens dans les cartes */
+.card a {
+    text-decoration: none;
+    color: var(--bleu);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+
+/* ========== BOUTONS ========== */
+
 .btn-cta {
     display: inline-block;
-    background-color: var(--accent-blue);
+    background-color: var(--bleu);
     color: white;
     padding: 14px 30px;
     text-decoration: none;
@@ -178,28 +229,28 @@ header {
     font-weight: 700;
     font-size: 0.9rem;
     border-radius: 2px;
-    transition: transform 0.2s, background 0.2s;
+    transition: 0.2s;
 }
 
 .btn-cta:hover {
     transform: translateY(-2px);
-    background-color: #2563eb;
+    background-color: var(--bleu-fonce);
 }
 
-.card a {
-    text-decoration: none;
-    color: var(--accent-blue);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    margin-top: 1rem;
-}
 
-/* --- FOOTER --- */
+/* ========== FOOTER (bas de page) ========== */
+
 footer {
     background-color: #050505;
     border-top: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-gray);
+    color: var(--gris);
     font-size: 0.9rem;
 }
-.members { opacity: 0.7; margin-top: 5px; }
+
+/* liste des membres du groupe */
+.members {
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* TODO: ajouter le responsive plus tard */
