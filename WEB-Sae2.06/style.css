@@ -1,0 +1,205 @@
+/* --- STYLE.CSS : Design Premium, Couleurs & Animations --- */
+
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap');
+
+:root {
+    --bg-dark: #0f1115;       
+    --bg-header: rgba(15, 17, 21, 0.95); 
+    --accent-blue: #3b82f6;   /* Bleu vibrant */
+    --text-white: #ffffff;
+    --text-gray: #94a3b8;
+    
+    /* Effet verre */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1), transparent 40%);
+}
+
+/* --- TYPOGRAPHIE --- */
+h1, h2, h3, .logo, .btn-cta, .nav-links a, .header-cta {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2.titre-section {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 4rem 0 2rem 0; /* Espacement autour des titres de section */
+    color: var(--text-white);
+    letter-spacing: 1px;
+}
+
+h3 {
+    color: var(--accent-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--text-gray);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.mot-cle {
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--bg-header);
+    border-bottom: var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-white);
+    letter-spacing: 1px;
+}
+.logo-accent { color: var(--accent-blue); }
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-white);
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 5px;
+}
+
+.header-cta {
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-white);
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+.header-cta:hover {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+/* --- HERO --- */
+#hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- CARTES & BLOCS TEXTE (Correction BUG Animation) --- */
+
+/* Style pour les cartes (Accueil) et Blocs texte (Licence) */
+.card, .bloc-texte {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+    
+    /* L'animation manquante est ici : */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bloc-texte {
+    padding: 2.5rem;
+    margin-bottom: 2rem; /* Espace entre les blocs */
+}
+
+/* Effet au survol (Hover) commun */
+.card:hover, .bloc-texte:hover {
+    transform: translateY(-5px); /* Monte de 5px */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Ombre */
+    border-color: var(--accent-blue); /* Bordure bleue */
+    background: rgba(255, 255, 255, 0.05); /* S'éclaircit */
+}
+
+/* Style spécifique : Bordure gauche bleue */
+.bordure-gauche {
+    border-left: 4px solid var(--accent-blue);
+}
+
+/* --- BOUTONS --- */
+.btn-cta {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: white;
+    padding: 14px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    background-color: #2563eb;
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--accent-blue);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #050505;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+.members { opacity: 0.7; margin-top: 5px; }

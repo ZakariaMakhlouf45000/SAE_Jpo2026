@@ -1,0 +1,81 @@
+/* --- PLACEMENT.CSS : Layout --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- HEADER --- */
+.fc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    height: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.fc-nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.header-cta {
+    margin-left: 1rem;
+}
+
+/* --- HERO --- */
+#hero {
+    width: 100%;
+    /* Hauteur définie dans le HTML pour flexibilité */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* --- CONTENU --- */
+#programme {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grille de cartes (Accueil) */
+.fc-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.fi-card {
+    flex: 1 1 300px; /* Largeur min 300px */
+    min-height: 250px;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 768px) {
+    .fc-header {
+        flex-direction: column;
+        height: auto;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    .fc-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+}
