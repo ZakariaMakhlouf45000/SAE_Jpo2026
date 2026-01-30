@@ -1,256 +1,156 @@
-/*
-    STYLE.CSS - SAE JPO 2026
-    fait par l'equipe pour le projet web
-    derniere modif: jsp lol
+/* STYLE.CSS - Projet SAE 2.06
+    Equipe : Timothée, Florient, Yolan, Zakaria
+    Modif : J'ai enfin réussi à fixer le header !
 */
 
-/* google fonts (j'ai trouvé ca sur stackoverflow) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap');
 
-/* variables css facile pour factoriser */
 :root {
-    --couleur-fond: #0f1115;
-    --couleur-header: rgba(15, 17, 21, 0.95);
-    --bleu: #3b82f6;
-    --bleu-fonce: #2563eb;
+    --couleur-fond: #1a1c23; /* Un gris-noir plus standard */
+    --couleur-header: #111317;
+    --bleu-iut: #a200ff;      /* Bleu plus "standard" */
+    --bleu-hover: #9420ed;
     --blanc: #ffffff;
-    --gris: #94a3b8;
+    --gris-texte: #cccccc;
+    --bordure: #333333;
 }
 
-/* le body  */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     background-color: var(--couleur-fond);
-    background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1), transparent 40%);
     color: var(--blanc);
-    line-height: 1.6;
-    margin: 0; /* reset navigateur */
-    padding: 0;
+    line-height: 1.5;
+    margin: 0;
+    
 }
 
 /* ========== TITRES ========== */
 
-/* tous les titres en montserrat c'est le style utilisé */
-h1, h2, h3, .logo, .btn-cta, .nav-links a, .header-cta {
+h1, h2, h3, .logo, .btn-cta, .nav-links a {
     font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: 900;
+    font-size: 2.5rem; /* Un peu moins gros */
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: -1px;
     margin-bottom: 1rem;
-    /* effet degrade sur le texte (trop stylé) */
-    background: linear-gradient(135deg, #fff, #cbd5e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--blanc); /* On enlève le dégradé sur le texte */
 }
 
-/* titre de section */
 h2.titre-section {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
-    text-transform: uppercase;
-    margin-top: 4rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
-    color: var(--blanc);
-    letter-spacing: 1px;
+    border-bottom: 2px solid var(--bleu-iut); /* Soulignement simple */
+    display: inline-block;
+    padding-bottom: 10px;
+    width: 100%;
 }
 
 h3 {
-    color: var(--bleu);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
+    color: var(--bleu-iut);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
 }
 
 p {
-    color: var(--gris);
-    font-size: 1.05rem;
+    color: var(--gris-texte);
     margin-bottom: 1rem;
 }
 
-/* pour les mots importants */
 .mot-cle {
-    color: var(--blanc);
-    font-weight: 600;
+    color: var(--bleu-iut); /* Plus logique pour un étudiant de mettre les mots clés en couleur */
+    font-weight: bold;
 }
 
-/* ========== HEADER (la barre en haut) ========== */
+/* ========== HEADER ========== */
 
 header {
     background-color: var(--couleur-header);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: sticky; /* reste en haut quand on scroll */
+    border-bottom: 2px solid var(--bleu-iut);
+    position: sticky;
     top: 0;
-    z-index: 1000; /* pour etre au dessus du reste */
-    backdrop-filter: blur(10px); /* effet flou derriere */
+    z-index: 100;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--blanc);
-    letter-spacing: 1px;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-/* la partie colorée du logo */
 .logo-accent {
-    color: var(--bleu);
+    color: var(--bleu-iut);
 }
 
-/* liens de navigation */
 .nav-links a {
     text-decoration: none;
-    color: #cbd5e1;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.3s;
-    letter-spacing: 0.5px;
-}
-
-.nav-links a:hover {
     color: var(--blanc);
-    border-bottom: 2px solid var(--bleu);
-    padding-bottom: 5px;
+    font-size: 0.9rem;
+    transition: 0.2s;
 }
 
-/* lien actif (page actuelle) */
-.nav-links a.active {
-    color: var(--blanc);
-    border-bottom: 2px solid var(--bleu);
-    padding-bottom: 5px;
+.nav-links a:hover, .nav-links a.active {
+    color: var(--bleu-iut);
+    font-size: x-large;
 }
 
-/* bouton contact dans le header */
 .header-cta {
     text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.2);
     color: var(--blanc);
-    padding: 8px 16px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.3s;
-    border-radius: 2px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 2px solid #bfb7c4;
+    border-radius: 27px;
 }
 
 .header-cta:hover {
-    background-color: var(--bleu);
-    border-color: var(--bleu);
+    background-color: #ce8ff785;
+    font-size: large;
 }
 
+/* ========== BLOCS ET CARTES ========== */
 
-/* ========== HERO (grande image en haut) ========== */
-
-#hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
+.card, .bloc-texte {
+    background: #252830; /* Fond uni, pas de transparence complexe */
+    border: 1px solid var(--bordure);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-
-/* ========== CARTES ========== */
-
-/* style de base pour les cartes */
-.card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    backdrop-filter: blur(5px);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.3s ease; /* animation smooth */
-    position: relative;
-    overflow: hidden;
+/* Effet hover plus simple */
+.card:hover, .bloc-texte:hover {
+    border-color: var(--bleu-iut);
+    background: #2c303a;
 }
 
-/* pareil mais pour les blocs de texte */
-.bloc-texte {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    backdrop-filter: blur(5px);
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* effet quand on passe la souris dessus */
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: var(--bleu);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.bloc-texte:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: var(--bleu);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* bordure bleue a gauche */
 .bordure-gauche {
-    border-left: 4px solid var(--bleu);
+    border-left: 5px solid var(--bleu-iut);
 }
-
-/* liens dans les cartes */
-.card a {
-    text-decoration: none;
-    color: var(--bleu);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    margin-top: 1rem;
-}
-
 
 /* ========== BOUTONS ========== */
 
 .btn-cta {
     display: inline-block;
-    background-color: var(--bleu);
+    background-color: gray;
     color: white;
-    padding: 14px 30px;
+    padding: 15px 25px;
     text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 2px;
-    transition: 0.2s;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .btn-cta:hover {
-    transform: translateY(-2px);
-    background-color: var(--bleu-fonce);
+    background-color: var(--bleu-hover);
 }
-
-
-/* ========== FOOTER (bas de page) ========== */
 
 footer {
-    background-color: #050505;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: var(--gris);
-    font-size: 0.9rem;
+    background-color: #111317;
+    padding: 2rem;
+    border-top: 1px solid var(--bordure);
+    margin-top: 50px;
+    text-align: center;
 }
-
-/* liste des membres du groupe */
-.members {
-    opacity: 0.7;
-    margin-top: 5px;
-}
-
-/* TODO: ajouter le responsive plus tard */
