@@ -1,156 +1,185 @@
-/* STYLE.CSS - Projet SAE 2.06
-    Equipe : Timothée, Florient, Yolan, Zakaria
-    Modif : J'ai enfin réussi à fixer le header !
+/* STYLE.CSS - SAE 2.06 
+   Équipe : Timothée, Florient, Yolan, Zakaria
+   Charte graphique : IUT d'Orléans (Prune & Blanc)
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap');
 
 :root {
-    --couleur-fond: #1a1c23; /* Un gris-noir plus standard */
-    --couleur-header: #111317;
-    --bleu-iut: #a200ff;      /* Bleu plus "standard" */
-    --bleu-hover: #9420ed;
+    /* Couleurs officielles IUT d'Orléans */
+    --prune-iut: #8d1b6b; 
+    --prune-hover: #6d1452;
+    --fond-sombre: #121212;
+    --fond-carte: #1e1e1e;
     --blanc: #ffffff;
-    --gris-texte: #cccccc;
-    --bordure: #333333;
+    --gris-texte: #d1d1d1;
+    --transition: all 0.3s ease;
 }
 
 body {
-    font-family: 'Inter', Arial, sans-serif;
-    background-color: var(--couleur-fond);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fond-sombre);
     color: var(--blanc);
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
-    
 }
 
-/* ========== TITRES ========== */
+/* ========== IDENTITÉ VISUELLE & LOGO ========== */
 
-h1, h2, h3, .logo, .btn-cta, .nav-links a {
+h1, h2, h3, .btn-cta, .nav-links a {
     font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-    font-size: 2.5rem; /* Un peu moins gros */
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    color: var(--blanc); /* On enlève le dégradé sur le texte */
+.logo-img {
+    height: 50px; /* Taille optimisée pour le header */
+    width: auto;
+    display: block;
+}
+
+/* Image d'illustration du campus */
+.img-iut {
+    width: 150%;
+    max-width: 1200px;
+    border-radius: 13px;
+    margin: 30px auto;
+    display: block;
+    border: 3px solid var(--prune-iut);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 h2.titre-section {
-    font-size: 1.8rem;
     text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--bleu-iut); /* Soulignement simple */
-    display: inline-block;
-    padding-bottom: 10px;
-    width: 100%;
+    font-size: 2.2rem;
+    margin: 3rem 0;
+    padding-bottom: 15px;
+    border-bottom: 4px solid var(--prune-iut);
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-h3 {
-    color: var(--bleu-iut);
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-}
-
-p {
-    color: var(--gris-texte);
-    margin-bottom: 1rem;
-}
-
-.mot-cle {
-    color: var(--bleu-iut); /* Plus logique pour un étudiant de mettre les mots clés en couleur */
-    font-weight: bold;
-}
-
-/* ========== HEADER ========== */
+/* ========== NAVIGATION ========== */
 
 header {
-    background-color: var(--couleur-header);
-    border-bottom: 2px solid var(--bleu-iut);
+    background-color: rgba(18, 18, 18, 0.98);
+    border-bottom: 2px solid var(--prune-iut);
     position: sticky;
     top: 0;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.logo-accent {
-    color: var(--bleu-iut);
+    z-index: 1000;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--blanc);
-    font-size: 0.9rem;
-    transition: 0.2s;
+    font-size: 1.1rem;     
+    font-weight: 700;      
+    transition: var(--transition);
+    padding: 5px 10px;
+}
+
+.nav-links a:hover {
+    font-size: 1.2rem;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--bleu-iut);
-    font-size: x-large;
+    color: var(--prune-iut);
+    transform: scale(1.05);
 }
 
 .header-cta {
     text-decoration: none;
+    background-color: var(--prune-iut);
     color: var(--blanc);
-    padding: 10px 20px;
-    font-size: 0.8rem;
+    padding: 10px 25px;
+    border-radius: 50px;
     font-weight: bold;
-    border: 2px solid #bfb7c4;
-    border-radius: 27px;
+    font-size: 1rem;
+    transition: var(--transition);
+
 }
 
 .header-cta:hover {
-    background-color: #ce8ff785;
-    font-size: large;
+    background-color: var(--prune-hover);
+    transform: scale(1.05);
 }
-
-/* ========== BLOCS ET CARTES ========== */
-
-.card, .bloc-texte {
-    background: #252830; /* Fond uni, pas de transparence complexe */
-    border: 1px solid var(--bordure);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-/* Effet hover plus simple */
-.card:hover, .bloc-texte:hover {
-    border-color: var(--bleu-iut);
-    background: #2c303a;
-}
-
-.bordure-gauche {
-    border-left: 5px solid var(--bleu-iut);
-}
-
-/* ========== BOUTONS ========== */
 
 .btn-cta {
-    display: inline-block;
-    background-color: gray;
-    color: white;
-    padding: 15px 25px;
     text-decoration: none;
+    background-color: var(--prune-iut);
+    color: var(--blanc);
+    padding: 12px 30px;
+    border-radius: 50px;
     font-weight: bold;
-    border-radius: 5px;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: var(--transition);
 }
 
 .btn-cta:hover {
-    background-color: var(--bleu-hover);
+    background-color: var(--prune-hover);
+    transform: scale(1.05);
+
+}
+
+#hero {
+
+    background-size: cover ;
+    background-position: center ;
+    background-repeat: no-repeat;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+/* ========== CARTES & BLOCS ========== */
+
+.card, .bloc-texte {
+    background: var(--fond-carte);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin: 10px;
+}
+
+.bloc-texte:hover {
+    border-color: var(--prune-iut);
+    box-shadow: 0 10px 25px rgba(141, 27, 107, 0.2);
+    transform: scale(1.02);
+    transition: var(--transition);
+}
+
+.card:hover {
+    border-color: var(--prune-iut);
+    box-shadow: 0 10px 25px rgba(141, 27, 107, 0.2);
+    transform: scale(1.02);
+    transition: var(--transition);
+}
+
+.card h3 {
+    color: var(--prune-iut);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
 }
 
 footer {
-    background-color: #111317;
-    padding: 2rem;
-    border-top: 1px solid var(--bordure);
-    margin-top: 50px;
+    padding: 4rem 2rem;
+    background: #0a0a0a;
+    border-top: 1px solid #333;
     text-align: center;
+}
+
+.membre_grpe {
+    color: var(--gris-texte);
+    font-size: 0.95rem;
+    margin-top: 10px;
 }

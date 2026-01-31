@@ -11,10 +11,14 @@
 
 <header>
     <div class="fc-header">
-        <div class="logo">BUT<span class="logo-accent">INFO.</span></div>
+        <div class="logo">
+            <a href="page web.html">
+                <img src="img/logoiut.png" alt="Logo IUT Orléans" class="logo-img">
+            </a>
+        </div>
         <nav>
             <ul class="fc-nav nav-links">
-                <li class="fi-nav"><a href="index.html" class="active">Accueil</a></li>
+                <li class="fi-nav"><a href="page web.html" class="active">Accueil</a></li>
                 <li class="fi-nav"><a href="#pendant">Pendant le BUT</a></li>
                 <li class="fi-nav"><a href="#ecoles">Écoles d’ingénieurs</a></li>
                 <li class="fi-nav"><a href="page_lisencePro.html">Licences professionnelles</a></li>
@@ -25,7 +29,7 @@
 </header>
 
 <main>
-    <section id="hero" style="height: 85vh; background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 1)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+    <section id="hero" style="background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 1)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
         <div class="hero-content">
             <h1>Construisez votre avenir</h1>
             <p>Découvrez toutes les poursuites d'études possibles après ou pendant votre BUT Informatique.</p>
@@ -34,11 +38,16 @@
         </div>
     </section>
 
-    <section id="programme">
+    <section class="container" style="text-align: center; padding: 60px 20px;">
+        <h2 class="titre-section">Votre futur campus à Orléans</h2>
+        <p>Étudiez dans un environnement moderne et dédié à l'informatique au cœur de l'IUT d'Orléans.</p>
+        <img src="img/batiment_info.png" alt="Bâtiment IUT Informatique Orléans" class="img-iut">
+    </section>
+
+    <section id="programme" class="container">
         <h2 class="titre-section" style="margin-top: 0;">Les Voies Possibles</h2>
         
         <div class="fc-cards">
-            
             <article class="card fi-card" id="pendant">
                 <h3>Pendant le BUT</h3>
                 <p>Réorientation ou spécialisation : découvrez ce que vous pouvez faire après la 2ème année.</p>
@@ -62,7 +71,6 @@
                 <p>Une année de spécialisation pour une insertion professionnelle rapide et qualifiée.</p>
                 <a href="page_lisencePro.html">En savoir plus &rarr;</a>
             </article>
-
         </div>
     </section>
 </main>
